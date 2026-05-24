@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Test Site</title>
+  <title>Updated Test Site</title>
   <style>
     :root {
-      color-scheme: light dark;
       font-family: Arial, sans-serif;
+      color: #172033;
+      background: #eef3f8;
     }
 
     body {
@@ -15,57 +16,81 @@
       min-height: 100vh;
       display: grid;
       place-items: center;
-      background: #f4f7fb;
-      color: #172033;
+      background:
+        linear-gradient(135deg, rgba(255, 212, 0, 0.22), transparent 34%),
+        linear-gradient(315deg, rgba(0, 112, 243, 0.16), transparent 38%),
+        #eef3f8;
     }
 
     main {
-      width: min(92vw, 680px);
-      padding: 40px;
-      border: 1px solid #d9e2ef;
+      width: min(92vw, 720px);
+      padding: 42px;
+      border: 1px solid #d6dfec;
       border-radius: 8px;
       background: #ffffff;
-      box-shadow: 0 18px 50px rgba(23, 32, 51, 0.08);
+      box-shadow: 0 20px 60px rgba(23, 32, 51, 0.12);
       text-align: center;
     }
 
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #172033;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #31c46b;
+    }
+
     h1 {
-      margin: 0 0 12px;
-      font-size: clamp(32px, 6vw, 54px);
+      margin: 0 0 14px;
+      font-size: clamp(34px, 6vw, 58px);
+      line-height: 1.05;
     }
 
     p {
-      margin: 0;
+      margin: 0 auto;
+      max-width: 560px;
       font-size: 18px;
       line-height: 1.6;
       color: #526173;
     }
 
-    .status {
+    a {
       display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 28px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: #e8f7ef;
-      color: #176b3a;
+      margin-top: 30px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: #0070f3;
+      color: #ffffff;
       font-weight: 700;
+      text-decoration: none;
     }
 
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: currentColor;
+    footer {
+      margin-top: 24px;
+      font-size: 14px;
+      color: #6b7585;
     }
   </style>
 </head>
 <body>
   <main>
-    <h1>Сайт працює</h1>
-    <p>Це тестова сторінка <strong>index.html</strong> для перевірки статичного сайту.</p>
-    <div class="status"><span class="dot"></span> Test page loaded</div>
+    <div class="badge"><span class="dot"></span> Оновлено 24.05.2026</div>
+    <h1>Сторінку змінено</h1>
+    <p>Це оновлена тестова сторінка для перевірки GitHub Pages. Якщо ви бачите цей текст, деплой з гілки <strong>main</strong> працює.</p>
+    <a href="https://github.com/denysyankin-ai/test">Відкрити репозиторій</a>
+    <footer>Version 2 - GitHub Pages test</footer>
   </main>
 </body>
 </html>
