@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test Site</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #f4f7fb;
+      color: #172033;
+    }
+
+    main {
+      width: min(92vw, 680px);
+      padding: 40px;
+      border: 1px solid #d9e2ef;
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 18px 50px rgba(23, 32, 51, 0.08);
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(32px, 6vw, 54px);
+    }
+
+    p {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #526173;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 28px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #e8f7ef;
+      color: #176b3a;
+      font-weight: 700;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Сайт працює</h1>
+    <p>Це тестова сторінка <strong>index.html</strong> для перевірки статичного сайту.</p>
+    <div class="status"><span class="dot"></span> Test page loaded</div>
+  </main>
+</body>
+</html>
