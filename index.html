@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Backweston Community Hub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css">
   <style>
     :root {
       --blue: #0875e1;
@@ -40,6 +41,11 @@
       text-decoration: none;
     }
 
+    .bi {
+      display: inline-flex;
+      line-height: 1;
+    }
+
     .page {
       overflow: hidden;
     }
@@ -70,10 +76,28 @@
       min-width: 210px;
     }
 
-    .logo {
-      width: 44px;
-      height: 44px;
+    .logo-mark {
+      position: relative;
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
       flex: 0 0 auto;
+      border-radius: 50%;
+      background: linear-gradient(180deg, rgba(8, 117, 225, 0.12), rgba(255, 210, 57, 0.18));
+      color: var(--blue);
+      font-size: 31px;
+    }
+
+    .logo-mark::after {
+      content: "";
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 10px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--yellow);
     }
 
     .brand-title {
@@ -189,9 +213,8 @@
       font-weight: 800;
     }
 
-    .primary-button svg {
-      width: 18px;
-      height: 18px;
+    .primary-button .bi {
+      font-size: 18px;
     }
 
     .intro-strip {
@@ -225,6 +248,7 @@
       border-radius: 50%;
       color: var(--blue);
       background: #e8f3ff;
+      font-size: 29px;
     }
 
     .icon-circle.green {
@@ -240,11 +264,6 @@
     .icon-circle.pink {
       color: var(--pink);
       background: #fde9f0;
-    }
-
-    .icon-circle svg {
-      width: 29px;
-      height: 29px;
     }
 
     .intro-item h2,
@@ -441,11 +460,10 @@
       text-align: center;
     }
 
-    .small-card svg {
-      width: 36px;
-      height: 36px;
+    .small-card .bi {
       margin-bottom: 18px;
       color: var(--blue);
+      font-size: 38px;
     }
 
     .small-card h3 {
@@ -487,11 +505,15 @@
 
     .heart-art {
       width: 112px;
-      height: 92px;
-      background-image: url("assets/community-heart.jpg"), linear-gradient(180deg, var(--blue) 0 48%, var(--yellow) 48% 100%);
+      height: 112px;
+      display: grid;
+      place-items: center;
+      border-radius: 32px;
+      background-image: url("assets/community-heart.jpg"), linear-gradient(180deg, rgba(8, 117, 225, 0.14) 0 50%, rgba(255, 210, 57, 0.28) 50% 100%);
       background-size: cover;
       background-position: center;
-      clip-path: path("M56 86 C18 58 5 43 9 23 C12 7 30 1 56 24 C82 1 100 7 103 23 C107 43 94 58 56 86 Z");
+      color: var(--blue);
+      font-size: 70px;
     }
 
     .footer-card h2 {
@@ -524,11 +546,10 @@
       align-items: start;
     }
 
-    .contact-list svg,
-    .link-list svg {
-      width: 19px;
-      height: 19px;
+    .contact-list .bi,
+    .link-list .bi {
       color: var(--blue);
+      font-size: 18px;
       margin-top: 1px;
     }
 
@@ -621,6 +642,14 @@
         padding: 24px;
       }
 
+      .news-row {
+        grid-template-columns: 58px 1fr;
+      }
+
+      .date-text {
+        grid-column: 2;
+      }
+
       .event-row {
         grid-template-columns: 96px 1fr;
       }
@@ -652,10 +681,7 @@
     <header class="header">
       <nav class="nav" aria-label="Головна навігація">
         <a class="brand" href="#home" aria-label="Backweston Community Hub">
-          <svg class="logo" viewBox="0 0 48 48" aria-hidden="true">
-            <path d="M24 41C10 30 5 24 6 15c1-7 9-10 18-2 9-8 17-5 18 2 1 9-4 15-18 26Z" fill="none" stroke="#0875e1" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M7 23c3 6 9 11 17 18 8-7 14-12 17-18" fill="none" stroke="#ffd239" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          <span class="logo-mark"><i class="bi bi-heart" aria-hidden="true"></i></span>
           <span>
             <span class="brand-title">Backweston</span>
             <span class="brand-subtitle">Community Hub</span>
@@ -668,9 +694,7 @@
           <a href="#information">Information</a>
           <a href="#contacts">Contacts</a>
         </div>
-        <a class="language" href="#home" aria-label="Language selector">EN
-          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+        <a class="language" href="#home" aria-label="Language selector">EN <i class="bi bi-chevron-down" aria-hidden="true"></i></a>
       </nav>
     </header>
 
@@ -681,29 +705,26 @@
             <p class="eyebrow">Для мешканців</p>
             <h1 id="hero-title">Backweston Community</h1>
             <p class="lead">Ваш інформаційний простір.<br>Все важливе про життя в нашому містечку.</p>
-            <a class="primary-button" href="#news">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z" fill="currentColor"/><path d="M10 20a2 2 0 0 0 4 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              Дивитися останні новини
-            </a>
+            <a class="primary-button" href="#news"><i class="bi bi-bell-fill" aria-hidden="true"></i> Дивитися останні новини</a>
           </div>
         </div>
       </section>
 
       <section class="intro-strip" aria-label="Основні можливості">
         <article class="intro-item">
-          <span class="icon-circle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a4 4 0 1 0-8 0" fill="currentColor" opacity=".25"/><path d="M7 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm10 0a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM2 21c.7-4 3-6 7-6s6.3 2 7 6H2Zm10.5 0c.5-3 2.2-4.8 5.5-4.8 2.6 0 4.4 1.5 5 4.8H12.5Z" fill="currentColor"/></svg></span>
+          <span class="icon-circle"><i class="bi bi-people-fill" aria-hidden="true"></i></span>
           <div><h2>Наша громада</h2><p>Разом ми - сила. Підтримуємо одне одного щодня.</p></div>
         </article>
         <article class="intro-item">
-          <span class="icon-circle green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v4M17 2v4M4 9h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="4" y="5" width="16" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m9 14 2 2 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="icon-circle green"><i class="bi bi-calendar-event" aria-hidden="true"></i></span>
           <div><h2>Події та новини</h2><p>Актуальні події, зустрічі та важливі оголошення.</p></div>
         </article>
         <article class="intro-item">
-          <span class="icon-circle orange"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 10v6M12 7h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+          <span class="icon-circle orange"><i class="bi bi-info-circle" aria-hidden="true"></i></span>
           <div><h2>Корисна інформація</h2><p>Транспорт, медицина, освіта та інші важливі послуги поруч.</p></div>
         </article>
         <article class="intro-item">
-          <span class="icon-circle pink"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.6c-2.1-2.2-5.5-2-7.4.4L12 7.7 10.6 6C8.7 3.6 5.3 3.4 3.2 5.6c-2.3 2.4-2.1 6.2.4 8.4l8.4 7 8.4-7c2.5-2.2 2.7-6 .4-8.4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+          <span class="icon-circle pink"><i class="bi bi-heart" aria-hidden="true"></i></span>
           <div><h2>Підтримка</h2><p>Допомога, консультації та ресурси для мешканців містечка.</p></div>
         </article>
       </section>
@@ -717,17 +738,17 @@
             </div>
             <div class="news-list">
               <div class="news-row">
-                <span class="icon-circle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4a7 7 0 0 0-7 7v5h14v-5a7 7 0 0 0-7-7Z" fill="currentColor" opacity=".22"/><path d="M12 3v3M8 16v1a4 4 0 0 0 8 0v-1M15 8h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+                <span class="icon-circle"><i class="bi bi-megaphone-fill" aria-hidden="true"></i></span>
                 <div><h3>Зустріч мешканців містечка</h3><p>Запрошуємо всіх на загальні збори громади. Обговоримо важливі питання.</p></div>
                 <span class="date-text">24 травня</span>
               </div>
               <div class="news-row">
-                <span class="icon-circle green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4C12 4 5 9 4 20c10-1 15-8 16-16Z" fill="currentColor" opacity=".22"/><path d="M4 20c4-6 8-9 13-12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+                <span class="icon-circle green"><i class="bi bi-leaf-fill" aria-hidden="true"></i></span>
                 <div><h3>Вивіз сміття у святкові дні</h3><p>Графік змінено на 1 та 2 червня. Будь ласка, зверніть увагу.</p></div>
                 <span class="date-text">23 травня</span>
               </div>
               <div class="news-row">
-                <span class="icon-circle orange"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-8 12h6l-1 8 9-13h-6l0-7Z" fill="currentColor"/></svg></span>
+                <span class="icon-circle orange"><i class="bi bi-lightning-charge-fill" aria-hidden="true"></i></span>
                 <div><h3>Тимчасове відключення води</h3><p>28 травня з 09:00 до 13:00. Дякуємо за розуміння.</p></div>
                 <span class="date-text">22 травня</span>
               </div>
@@ -762,36 +783,36 @@
         <section id="information" class="info-panel" aria-labelledby="info-title">
           <h2 id="info-title">Важлива інформація</h2>
           <div class="info-grid">
-            <a class="small-card" href="#information"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 17h12M6 17v3M18 17v3M5 6h14l1 6v5H4v-5l1-6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 14h.01M17 14h.01" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><h3>Транспорт</h3><p>Розклад автобусів та маршрути.</p></a>
-            <a class="small-card" href="#information"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><rect x="4" y="4" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/></svg><h3>Медицина</h3><p>Медичні послуги та контакти.</p></a>
-            <a class="small-card" href="#information"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 8 9-5 9 5-9 5-9-5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M6 10v5c3 3 9 3 12 0v-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><h3>Освіта</h3><p>Школи, курси та дитячі садки.</p></a>
-            <a class="small-card" href="#information"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 2.8 7.4 7 9 4.2-1.6 7-4.5 7-9V6l-7-3Z" fill="currentColor"/></svg><h3>Безпека</h3><p>Корисні поради та контакти.</p></a>
-            <a class="small-card" href="#information"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7V3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 3v5h5M10 12h5M10 16h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><h3>Документи</h3><p>Важливі форми та посилання.</p></a>
-            <a class="small-card" href="#information"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.6c-2.1-2.2-5.5-2-7.4.4L12 7.7 10.6 6C8.7 3.6 5.3 3.4 3.2 5.6c-2.3 2.4-2.1 6.2.4 8.4l8.4 7 8.4-7c2.5-2.2 2.7-6 .4-8.4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><h3>Підтримка</h3><p>Де отримати допомогу та консультацію.</p></a>
+            <a class="small-card" href="#information"><i class="bi bi-bus-front-fill" aria-hidden="true"></i><h3>Транспорт</h3><p>Розклад автобусів та маршрути.</p></a>
+            <a class="small-card" href="#information"><i class="bi bi-hospital-fill" aria-hidden="true"></i><h3>Медицина</h3><p>Медичні послуги та контакти.</p></a>
+            <a class="small-card" href="#information"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i><h3>Освіта</h3><p>Школи, курси та дитячі садки.</p></a>
+            <a class="small-card" href="#information"><i class="bi bi-shield-fill-check" aria-hidden="true"></i><h3>Безпека</h3><p>Корисні поради та контакти.</p></a>
+            <a class="small-card" href="#information"><i class="bi bi-file-earmark-text-fill" aria-hidden="true"></i><h3>Документи</h3><p>Важливі форми та посилання.</p></a>
+            <a class="small-card" href="#information"><i class="bi bi-heart-pulse-fill" aria-hidden="true"></i><h3>Підтримка</h3><p>Де отримати допомогу та консультацію.</p></a>
           </div>
         </section>
 
         <section id="contacts" class="footer-grid" aria-label="Контакти та корисні посилання">
           <article class="footer-card community-card">
-            <div class="heart-art" aria-hidden="true"></div>
+            <div class="heart-art" aria-hidden="true"><i class="bi bi-heart-fill"></i></div>
             <div><h2>Разом будуємо наше майбутнє</h2><p>Підтримуємо одне одного. Створюємо дім.</p></div>
           </article>
           <article class="footer-card">
             <h2>Контакти</h2>
             <ul class="contact-list">
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.7 19.7 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.7 19.7 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>+353 (0) 123 456 789</span></li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4V4Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>backweston.community@gmail.com</span></li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.4 7-12A7 7 0 0 0 5 9c0 6.6 7 12 7 12Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>Backweston, Lucan, Co. Dublin</span></li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Пн - Пт: 09:00 - 18:00</span></li>
+              <li><i class="bi bi-telephone" aria-hidden="true"></i><span>+353 (0) 123 456 789</span></li>
+              <li><i class="bi bi-envelope" aria-hidden="true"></i><span>backweston.community@gmail.com</span></li>
+              <li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Backweston, Lucan, Co. Dublin</span></li>
+              <li><i class="bi bi-clock" aria-hidden="true"></i><span>Пн - Пт: 09:00 - 18:00</span></li>
             </ul>
           </article>
           <article class="footer-card">
             <h2>Корисні посилання</h2>
             <ul class="link-list">
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Дублінська міська рада</span></li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Громадський транспорт Дубліна</span></li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Послуги для новоприбулих</span></li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Екстрені служби: 112 / 999</span></li>
+              <li><i class="bi bi-chevron-right" aria-hidden="true"></i><span>Дублінська міська рада</span></li>
+              <li><i class="bi bi-chevron-right" aria-hidden="true"></i><span>Громадський транспорт Дубліна</span></li>
+              <li><i class="bi bi-chevron-right" aria-hidden="true"></i><span>Послуги для новоприбулих</span></li>
+              <li><i class="bi bi-chevron-right" aria-hidden="true"></i><span>Екстрені служби: 112 / 999</span></li>
             </ul>
           </article>
         </section>
